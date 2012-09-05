@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created by Magentix
+ * Date: 05/09/12
+ *
+ * @category   Magentix
+ * @package    Magentix_GeoIp
+ * @author     Matthieu Vion (http://www.magentix.fr)
+ * @license    This work is free software, you can redistribute it and/or modify it
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <geoip translate="title" module="geoip">
+                                        <title>MaxMind GeoIp</title>
+                                    </geoip>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

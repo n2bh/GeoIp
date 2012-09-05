@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created by Magentix
+ * Date: 05/09/12
+ *
+ * @category   Magentix
+ * @package    Magentix_GeoIp
+ * @author     Matthieu Vion (http://www.magentix.fr)
+ * @license    This work is free software, you can redistribute it and/or modify it
+ */
+-->
+<config>
+    <modules>
+        <Magentix_GeoIp>
+            <version>0.1.1</version>
+            <depends>
+                <Mage_Core />
+            </depends>
+        </Magentix_GeoIp>
+    </modules>
+    <global>
+        <models>
+            <geoip>
+                <class>Magentix_GeoIp_Model</class>
+            </geoip>
+        </models>
+        <helpers>
+            <geoip>
+                <class>Magentix_GeoIp_Helper</class>
+            </geoip>
+        </helpers>
+    </global>
+    <adminhtml>
+        <events>
+            <controller_action_predispatch_adminhtml_system_config_save>
+                <observers>
+                    <check_license_key>
+                        <class>geoip/observer</class>
+                        <method>checkLicenseKey</method>
+                    </check_license_key>
+                </observers>
+            </controller_action_predispatch_adminhtml_system_config_save>
+        </events>
+    </adminhtml>
+    <default>
+        <geoip>
+            <license>
+                <key></key>
+            </license>
+            <country>
+                <default>US</default>
+            </country>
+        </geoip>
+    </default>
+</config>
